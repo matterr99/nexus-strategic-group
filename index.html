@@ -58,7 +58,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 1.75rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -74,15 +74,17 @@
         }
 
         .logo-img {
-            height: 38px; /* Proportional header logo height */
+            height: 68px; /* Increased height for prominent visibility */
             width: auto;
             object-fit: contain;
             display: block;
-            transition: opacity 0.3s var(--cb-fluid);
+            mix-blend-mode: multiply; /* Blends white background into canvas */
+            transition: opacity 0.3s var(--cb-fluid), transform 0.3s var(--cb-fluid);
         }
 
         .logo-img:hover {
             opacity: 0.9;
+            transform: scale(1.02);
         }
 
         .nav-links {
@@ -110,7 +112,7 @@
             position: relative;
             text-align: center;
             max-width: 840px;
-            margin: 5rem auto 6rem auto;
+            margin: 4rem auto 6rem auto;
             padding: 0 1.5rem;
             z-index: 1;
         }
@@ -263,10 +265,10 @@
                 gap: 1.5rem;
             }
             .logo-img {
-                height: 30px; /* Scaled down for mobile */
+                height: 48px; /* Proportional scaling on tablets/mobile */
             }
             .nav-links {
-                gap: 1.5rem;
+                gap: 1.25rem;
             }
         }
     </style>
