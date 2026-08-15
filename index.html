@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Strategic Group LLC | Institutional Growth & Capital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Palette Derived Directly from Logo */
+            --navy-primary: #1b2a4a;
+            --navy-dark: #0f172a;
+            --navy-light: #2c3e66;
+            --blue-accent: #2563eb;
+            --blue-soft: #dbeafe;
+            
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            
+            --cb-fluid: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Dot-Matrix Accent Background */
+        .dot-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(var(--navy-primary) 0.8px, transparent 0.8px);
+            background-size: 20px 20px;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navigation Header */
+        nav {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Logo Brand Container */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 38px; /* Proportional header logo height */
+            width: auto;
+            object-fit: contain;
+            display: block;
+            transition: opacity 0.3s var(--cb-fluid);
+        }
+
+        .logo-img:hover {
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s var(--cb-fluid);
+        }
+
+        .nav-links a:hover {
+            color: var(--blue-accent);
+        }
+
+        /* Hero Section */
+        header.hero {
+            position: relative;
+            text-align: center;
+            max-width: 840px;
+            margin: 5rem auto 6rem auto;
+            padding: 0 1.5rem;
+            z-index: 1;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--navy-primary);
+            background-color: #edf2f7;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        header.hero h1 {
+            font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--navy-primary);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        header.hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 640px;
+            margin: 0 auto 2.5rem auto;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--navy-primary);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            padding: 1rem 2.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px -5px rgba(27, 42, 74, 0.25);
+            transition: transform 0.3s var(--cb-fluid), background 0.3s var(--cb-fluid), box-shadow 0.3s var(--cb-fluid);
+        }
+
+        .cta-button:hover {
+            background: var(--navy-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(27, 42, 74, 0.35);
+        }
+
+        /* Services Grid */
+        .services-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto 7rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+            z-index: 1;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            transition: transform 0.4s var(--cb-fluid), box-shadow 0.4s var(--cb-fluid), border-color 0.4s var(--cb-fluid);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 10px 10px -5px rgba(15, 23, 42, 0.03);
+        }
+
+        .card-num {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--blue-accent);
+            letter-spacing: 0.15em;
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .service-card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--navy-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .feature-list li {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--navy-light);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .feature-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: var(--blue-accent);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            background-color: #ffffff;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .logo-img {
+                height: 30px; /* Scaled down for mobile */
+            }
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dot-pattern"></div>
+
+    <nav>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Nexus Strategic Group LLC" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#wholesale">Wholesale</a></li>
+            <li><a href="#digital">Digital Services</a></li>
+            <li><a href="#trading">Macro Capital</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <span class="badge">Corporate Strategy & Operations</span>
+        <h1>Global infrastructure for commerce, brands, and capital.</h1>
+        <p>Empowering enterprise growth through high-volume wholesale distribution, high-performance digital architecture, and quantitative FX macro analysis.</p>
+        <a href="#contact" class="cta-button">Start a Consultation</a>
+    </header>
+
+    <main class="services-container">
+        <!-- Service Module 01 -->
+        <article class="service-card" id="wholesale">
+            <span class="card-num">01 / COMMERCE</span>
+            <h2>B2B Wholesale Commerce</h2>
+            <p>Strategic sourcing, margin optimization, and integrated logistics management for high-volume e-commerce operations.</p>
+            <ul class="feature-list">
+                <li>Strategic product sourcing</li>
+                <li>Logistics & prep center management</li>
+                <li>B2B margin structuring</li>
+            </ul>
+        </article>
+
+        <!-- Service Module 02 -->
+        <article class="service-card" id="digital">
+            <span class="card-num">02 / DIGITAL</span>
+            <h2>Web Infrastructure & Social Media</h2>
+            <p>High-converting corporate web design and tactical digital presence management focused on client acquisition.</p>
+            <ul class="feature-list">
+                <li>UI/UX development & web engineering</li>
+                <li>Tactical social media management</li>
+                <li>B2B & B2C conversion funnels</li>
+            </ul>
+        </article>
+
+        <!-- Service Module 03 -->
+        <article class="service-card" id="trading">
+            <span class="card-num">03 / CAPITAL</span>
+            <h2>Macro Research & FX Trading</h2>
+            <p>Quantitative macroeconomic analysis, global event mapping, and institutional intermarket liquidity tracking.</p>
+            <ul class="feature-list">
+                <li>Macroeconomic currency modeling</li>
+                <li>Global economic event filtering</li>
+                <li>Intermarket liquidity strategies</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NEXUS STRATEGIC GROUP LLC. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
+</html>
