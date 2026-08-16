@@ -10,7 +10,6 @@
     
     <style>
         :root {
-            /* Palette Derived Directly from Logo */
             --navy-primary: #1b2a4a;
             --navy-dark: #0f172a;
             --navy-light: #2c3e66;
@@ -33,6 +32,11 @@
             padding: 0;
         }
 
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
             background-color: var(--bg-light);
@@ -40,10 +44,8 @@
             line-height: 1.6;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
 
-        /* Dot-Matrix Accent Background */
         .dot-pattern {
             position: absolute;
             inset: 0;
@@ -67,28 +69,25 @@
             z-index: 2;
         }
 
-        /* Logo Brand Container */
+        /* Responsive Logo Container */
         .logo {
             display: flex;
             align-items: center;
             text-decoration: none;
-            overflow: visible;
+            max-width: 100%;
         }
 
         .logo-img {
-            height: 110px;
-            width: auto;
+            width: 100%;
+            max-width: 280px;
+            height: auto;
             object-fit: contain;
             display: block;
-            transform: scale(1.65); 
-            transform-origin: left center;
-            margin-left: -10px;
-            transition: opacity 0.3s var(--cb-fluid), transform 0.3s var(--cb-fluid);
+            transition: opacity 0.3s var(--cb-fluid);
         }
 
         .logo-img:hover {
-            opacity: 0.9;
-            transform: scale(1.70);
+            opacity: 0.85;
         }
 
         .nav-links {
@@ -116,7 +115,7 @@
             position: relative;
             text-align: center;
             max-width: 840px;
-            margin: 4rem auto 6rem auto;
+            margin: 3rem auto 5rem auto;
             padding: 0 1.5rem;
             z-index: 1;
         }
@@ -136,7 +135,7 @@
         }
 
         header.hero h1 {
-            font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+            font-size: clamp(2rem, 4.5vw, 3.8rem);
             font-weight: 800;
             letter-spacing: -0.03em;
             color: var(--navy-primary);
@@ -146,7 +145,7 @@
 
         header.hero p {
             color: var(--text-muted);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             max-width: 640px;
             margin: 0 auto 2.5rem auto;
             font-weight: 400;
@@ -163,20 +162,19 @@
             border-radius: 8px;
             text-decoration: none;
             box-shadow: 0 10px 25px -5px rgba(27, 42, 74, 0.25);
-            transition: transform 0.3s var(--cb-fluid), background 0.3s var(--cb-fluid), box-shadow 0.3s var(--cb-fluid);
+            transition: transform 0.3s var(--cb-fluid), background 0.3s var(--cb-fluid);
         }
 
         .cta-button:hover {
             background: var(--navy-dark);
             transform: translateY(-2px);
-            box-shadow: 0 15px 30px -5px rgba(27, 42, 74, 0.35);
         }
 
         /* Services Grid */
         .services-container {
             position: relative;
             max-width: 1200px;
-            margin: 0 auto 7rem auto;
+            margin: 0 auto 5rem auto;
             padding: 0 1.5rem;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -188,18 +186,17 @@
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 3rem 2.25rem;
+            padding: 2.5rem 1.75rem;
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.03);
-            transition: transform 0.4s var(--cb-fluid), box-shadow 0.4s var(--cb-fluid), border-color 0.4s var(--cb-fluid);
+            transition: transform 0.4s var(--cb-fluid), border-color 0.4s var(--cb-fluid);
         }
 
         .service-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
             background-color: #ffffff;
             border-color: rgba(37, 99, 235, 0.3);
-            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 10px 10px -5px rgba(15, 23, 42, 0.03);
         }
 
         .card-num {
@@ -212,7 +209,7 @@
         }
 
         .service-card h2 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--navy-primary);
             margin-bottom: 1rem;
@@ -257,81 +254,55 @@
             border-top: 1px solid var(--border-color);
             background-color: #ffffff;
             text-align: center;
-            padding: 3rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             color: var(--text-muted);
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 0.1em;
         }
 
-        /* Tablet & Mobile Media Queries */
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
                 gap: 1.25rem;
-                padding: 1.25rem 1rem;
+                padding: 1rem;
             }
 
             .logo-img {
-                height: 70px;
-                transform: scale(1.2);
-                transform-origin: center center;
-                margin-left: 0;
+                max-width: 220px;
             }
 
             .nav-links {
-                gap: 0.5rem;
+                gap: 0.4rem;
                 width: 100%;
                 justify-content: center;
                 flex-wrap: wrap;
             }
 
             .nav-links a {
-                font-size: 0.75rem;
-                padding: 0.5rem 0.85rem;
+                font-size: 0.725rem;
+                padding: 0.4rem 0.75rem;
                 background-color: #f1f5f9;
                 border: 1px solid var(--border-color);
                 border-radius: 20px;
             }
 
             header.hero {
-                margin: 2rem auto 3.5rem auto;
+                margin: 1.5rem auto 3rem auto;
                 padding: 0 1rem;
-            }
-
-            header.hero p {
-                font-size: 1rem;
             }
 
             .cta-button {
                 width: 100%;
-                max-width: 320px;
+                max-width: 280px;
                 text-align: center;
             }
 
             .services-container {
                 grid-template-columns: 1fr;
                 gap: 1.25rem;
-                margin-bottom: 4rem;
                 padding: 0 1rem;
-            }
-
-            .service-card {
-                padding: 2rem 1.5rem;
-                border-radius: 12px;
-            }
-        }
-
-        /* Extra Small Screen Optimization (Phones under 400px wide) */
-        @media (max-width: 400px) {
-            header.hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .badge {
-                font-size: 0.65rem;
-                letter-spacing: 0.15em;
-                padding: 0.4rem 0.85rem;
             }
         }
     </style>
@@ -359,7 +330,6 @@
     </header>
 
     <main class="services-container">
-        <!-- Service Module 01 -->
         <article class="service-card" id="wholesale">
             <span class="card-num">01 / COMMERCE</span>
             <h2>B2B Wholesale Commerce</h2>
@@ -371,7 +341,6 @@
             </ul>
         </article>
 
-        <!-- Service Module 02 -->
         <article class="service-card" id="digital">
             <span class="card-num">02 / DIGITAL</span>
             <h2>Web Infrastructure & Social Media</h2>
@@ -383,7 +352,6 @@
             </ul>
         </article>
 
-        <!-- Service Module 03 -->
         <article class="service-card" id="trading">
             <span class="card-num">03 / CAPITAL</span>
             <h2>Macro Research & FX Trading</h2>
