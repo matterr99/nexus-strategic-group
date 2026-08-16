@@ -17,8 +17,8 @@
             --blue-accent: #2563eb;
             --blue-soft: #dbeafe;
             
-            --bg-light: #ffffff; /* Matched perfectly to pure white logo background */
-            --card-bg: #f8fafc; /* Subtle off-white contrast for service modules */
+            --bg-light: #ffffff;
+            --card-bg: #f8fafc;
             --border-color: #e2e8f0;
             
             --text-main: #0f172a;
@@ -40,6 +40,7 @@
             line-height: 1.6;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         /* Dot-Matrix Accent Background */
@@ -79,12 +80,9 @@
             width: auto;
             object-fit: contain;
             display: block;
-            
-            /* Zooms past whitespace padding inside the PNG */
             transform: scale(1.65); 
             transform-origin: left center;
             margin-left: -10px;
-            
             transition: opacity 0.3s var(--cb-fluid), transform 0.3s var(--cb-fluid);
         }
 
@@ -138,7 +136,7 @@
         }
 
         header.hero h1 {
-            font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.8rem);
             font-weight: 800;
             letter-spacing: -0.03em;
             color: var(--navy-primary);
@@ -181,7 +179,7 @@
             margin: 0 auto 7rem auto;
             padding: 0 1.5rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             z-index: 1;
         }
@@ -266,19 +264,74 @@
             letter-spacing: 0.1em;
         }
 
+        /* Tablet & Mobile Media Queries */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 1.25rem;
+                padding: 1.25rem 1rem;
             }
+
             .logo-img {
-                height: 80px;
-                transform: scale(1.4);
+                height: 70px;
+                transform: scale(1.2);
                 transform-origin: center center;
                 margin-left: 0;
             }
+
             .nav-links {
+                gap: 0.5rem;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.85rem;
+                background-color: #f1f5f9;
+                border: 1px solid var(--border-color);
+                border-radius: 20px;
+            }
+
+            header.hero {
+                margin: 2rem auto 3.5rem auto;
+                padding: 0 1rem;
+            }
+
+            header.hero p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 320px;
+                text-align: center;
+            }
+
+            .services-container {
+                grid-template-columns: 1fr;
                 gap: 1.25rem;
+                margin-bottom: 4rem;
+                padding: 0 1rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+                border-radius: 12px;
+            }
+        }
+
+        /* Extra Small Screen Optimization (Phones under 400px wide) */
+        @media (max-width: 400px) {
+            header.hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .badge {
+                font-size: 0.65rem;
+                letter-spacing: 0.15em;
+                padding: 0.4rem 0.85rem;
             }
         }
     </style>
